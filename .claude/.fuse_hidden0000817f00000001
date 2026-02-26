@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install express cors concurrently)",
+      "Bash(curl -s http://localhost:3001/api/buku-tamu)",
+      "Bash(curl -s -X POST http://localhost:3001/api/add-buku-tamu -H \"Content-Type: application/json\" -d '{\"\"nama\"\":\"\"Test Tamu\"\",\"\"ucapan\"\":\"\"Selamat bahagia!\"\",\"\"hadir\"\":\"\"hadir\"\"}')",
+      "Bash(curl -s -X POST http://localhost:3001/api/add-buku-tamu -H \"Content-Type: application/json\" -d '{\"\"nama\"\":\"\"Test\"\",\"\"ucapan\"\":\"\"Bahagia selalu\"\",\"\"hadir\"\":\"\"hadir\"\"}')"
+    ]
+  }
+}
