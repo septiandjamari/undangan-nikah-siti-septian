@@ -6,10 +6,17 @@ import { dirname, join } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DB_PATH = join(__dirname, "buku-tamu.json");
+const DIST_PATH = join(__dirname, "../dist");
+const IS_PROD = process.env.NODE_ENV === "production";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Di production: serve static build Vite dari dist/
+if (IS_PROD) {
+  app.use(express.static(DIST_PATH));
+}
 
 function readDB() {
   if (!existsSync(DB_PATH)) writeFileSync(DB_PATH, "[]");
@@ -49,5 +56,12 @@ app.post("/api/add-buku-tamu", (req, res) => {
   res.json({ ok: true, data: entry });
 });
 
+// Di production: semua route lain fallback ke index.html (SPA routing)
+if (IS_PROD) {
+  app.get("*", (_req, res) => {
+    res.sendFile(join(DIST_PATH, "index.html"));
+  });
+}
+
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`API server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

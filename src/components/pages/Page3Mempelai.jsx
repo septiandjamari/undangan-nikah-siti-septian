@@ -16,7 +16,7 @@ export default function Page3Mempelai() {
         <PersonCard
           name="Siti Saodatul Ashari"
           role="Putri"
-          parents="Bapak <br />&amp; Ibu Hj Zuliah Hoesin"
+          parents="Bapak <br />&amp; Ibu "
         />
         <p className="script amp-sep">&amp;</p>
         <PersonCard
