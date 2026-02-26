@@ -6,7 +6,7 @@ import { dirname, join } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DB_PATH = join(__dirname, "buku-tamu.json");
-const DIST_PATH = join(__dirname, "../dist");
+const DIST_PATH = join(__dirname, "../build");
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const app = express();
