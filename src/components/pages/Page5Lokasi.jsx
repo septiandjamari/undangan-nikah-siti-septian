@@ -4,7 +4,7 @@ export default function Page5Lokasi() {
       <div className="lokasi-block">
         <div className="map-frame">
           <iframe
-            src="https://maps.google.com/maps?q=Kampung+Lombok,+Bekasi&output=embed"
+            src="https://maps.google.com/maps?q=RM.+Lombok+Abang,+Jl.+WR.+Supratman+No.95,+Cimuning,+Mustika+Jaya,+Bekasi&output=embed"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -12,12 +12,12 @@ export default function Page5Lokasi() {
           />
         </div>
 
-        <p className="meta lokasi-venue">Bekasi (Kampung Lombok)</p>
-        <p className="meta lokasi-address">Jl. Mulawarman, Manggar</p>
+        <p className="meta lokasi-venue">RM. Lombok Abang</p>
+        <p className="meta lokasi-address">Jl. WR. Supratman No.95, Cimuning,<br />Mustika Jaya, Bekasi 17155</p>
 
         <a
           className="btn-outline"
-          href="https://maps.google.com/maps?q=Kampung+Lombok,+Bekasi"
+          href="https://maps.app.goo.gl/xzSAWot44htkhEfa9"
           target="_blank"
           rel="noopener noreferrer"
         >

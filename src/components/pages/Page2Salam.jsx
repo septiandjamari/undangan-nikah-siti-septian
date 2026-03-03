@@ -10,7 +10,7 @@ export default function Page2Salam() {
         <p className="meta salam-text">
           Tanpa mengurangi rasa hormat, kami<br />
           bermaksud mengundang Bapak/Ibu/Saudara/i<br />
-          pada acara resepsi pernikahan anak kami
+          pada acara resepsi pernikahan kami
         </p>
       </div>
     </article>

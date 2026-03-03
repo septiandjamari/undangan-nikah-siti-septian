@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 
-const SHARE_URL = window.location.href;
-const WA_SHARE = `https://wa.me/?text=${encodeURIComponent("Hadir di undangan pernikahan Siti & Septian 🎉 " + SHARE_URL)}`;
-
 function KartuUcapan({ nama, ucapan, hadir, createdAt }) {
   const hadirLabel = { hadir: "✓ Hadir", tidak: "✗ Tidak hadir", mungkin: "~ Mungkin hadir" };
   const date = new Date(createdAt).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
@@ -18,11 +15,30 @@ function KartuUcapan({ nama, ucapan, hadir, createdAt }) {
   );
 }
 
-export default function Page8BukuTamu() {
+function ModalDaftarUcapan({ messages, onClose }) {
+  return (
+    <div className="ucapan-modal-overlay" onClick={onClose}>
+      <div className="ucapan-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="ucapan-modal-header">
+          <span className="ucapan-modal-title">Daftar Ucapan</span>
+          <button className="ucapan-modal-close" onClick={onClose} aria-label="Tutup">✕</button>
+        </div>
+        <div className="ucapan-modal-list">
+          {messages.map((m) => (
+            <KartuUcapan key={m.id} {...m} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Page8KartuUcapan() {
   const [messages, setMessages] = useState([]);
   const [form, setForm] = useState({ nama: "", ucapan: "", hadir: "hadir" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [errMsg, setErrMsg] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     fetch("/api/buku-tamu")
@@ -97,22 +113,27 @@ export default function Page8BukuTamu() {
           {status === "error" && <p className="bt-error">{errMsg}</p>}
           {status === "success" && <p className="bt-success">Ucapan terkirim! 🎉</p>}
 
-          <button className="btn-gold" type="submit" disabled={status === "loading"}>
+          <button className="btn-gold" type="submit" disabled={status === "loading"} style={{ textAlign: "center", justifyContent: "center" }}>
             {status === "loading" ? "Mengirim…" : "Kirim Ucapan"}
           </button>
         </form>
 
-        {/* Share */}
-        <a className="btn-outline" href={WA_SHARE} target="_blank" rel="noopener noreferrer">
-          Bagikan Undangan via WhatsApp
-        </a>
-
-        {/* List ucapan */}
+        {/* List ucapan — maks 3 card */}
         {messages.length > 0 && (
-          <div className="kartu-list">
-            {messages.map((m) => (
-              <KartuUcapan key={m.id} {...m} />
-            ))}
+          <div style={{ width: "90%", position: "relative" }}>            
+            <div className="kartu-list">
+              {messages.slice(0, 2).map((m) => (
+                <KartuUcapan key={m.id} {...m} />
+              ))}
+            </div>
+            <br />
+            <div className="ucapan-list-header">
+              {messages.length > 2 && (
+                <button className="ucapan-chip" onClick={() => setModalOpen(true)}>
+                  buka daftar ucapan
+                </button>
+              )}
+            </div>
           </div>
         )}
         {messages.length === 0 && (
@@ -121,6 +142,10 @@ export default function Page8BukuTamu() {
           </p>
         )}
       </div>
+
+      {modalOpen && (
+        <ModalDaftarUcapan messages={messages} onClose={() => setModalOpen(false)} />
+      )}
     </article>
   );
 }

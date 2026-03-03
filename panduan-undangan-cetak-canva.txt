@@ -1,0 +1,206 @@
+══════════════════════════════════════════════════════════════
+  PANDUAN KONTEN UNDANGAN CETAK — SITI & SEPTIAN
+  (Referensi untuk desain di Canva)
+══════════════════════════════════════════════════════════════
+
+── PALET WARNA ────────────────────────────────────────────────
+  Background utama : #f5ead0  (krem hangat)
+  Gold / aksen     : #d99a34
+  Teks utama (ink) : #69755a  (hijau keabu-abuan)
+  Garis dekorasi   : rgba(184, 141, 63, 0.86)
+
+── TIPOGRAFI ──────────────────────────────────────────────────
+  FONT SCRIPT (nama mempelai, judul dekoratif)
+    → Nama font   : Playlist Script
+    → Warna       : #d99a34 (gold)
+    → Weight      : Regular (400)
+
+  FONT BODY / META (semua teks keterangan)
+    → Nama font   : GFS Didot  (fallback: Didot, serif)
+    → Warna       : #69755a (ink)
+    → Letter-spacing lebar (0.12em – 0.28em)
+
+  PANDUAN UKURAN FONT (konversi dari clamp responsif):
+    Judul script besar   → ±90–112px  (cover, halaman salam, dll)
+    Angka tanggal        → ±72–96px   (bold, warna gold)
+    Nama mempelai        → ±48–64px   (script)
+    Teks keterangan      → ±14–20px
+    Teks kecil / label   → ±10–14px   (huruf kapital, spasi lebar)
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 1 — COVER
+══════════════════════════════════════════════════════════════
+  [Teks atas — GFS Didot, kecil, letter-spacing lebar]
+    "Undangan Pernikahan"
+    "Dari:"
+
+  [Nama mempelai — Playlist Script, gold, besar]
+    Siti
+    Septian
+
+  [Blok tamu — GFS Didot, kecil]
+    "Kepada Yth:"
+    "Bapak/Ibu/Saudara/i"
+    [Nama Tamu]
+    "Di Tempat"
+
+  [Tombol — GFS Didot, background gold, teks putih]
+    "Buka Undangan"
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 2 — SALAM PEMBUKA
+══════════════════════════════════════════════════════════════
+  [Nama mempelai — Playlist Script, gold, besar]
+    Siti
+    Septian
+
+  [Salam — GFS Didot, bold, letter-spacing]
+    "Assalamu'alaikum Wr Wb"
+
+  [Paragraf — GFS Didot, normal]
+    "Tanpa mengurangi rasa hormat, kami
+    bermaksud mengundang Bapak/Ibu/Saudara/i
+    pada acara resepsi pernikahan kami"
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 3 — DATA MEMPELAI
+══════════════════════════════════════════════════════════════
+  [Mempelai Wanita]
+    Nama  : Siti Saodatul Ashari           ← Playlist Script, gold
+    Role  : Putri ke-4                     ← GFS Didot, kecil, kapital, spasi lebar
+    Orang tua:
+      Bapak Jahidin
+      & Ibu Nuraenah (Almh)                ← GFS Didot, kecil
+
+  [Pemisah — Playlist Script, gold, besar]
+    &
+
+  [Mempelai Pria]
+    Nama  : Septian Djamari Chaniaco       ← Playlist Script, gold
+    Role  : Putra ke-2                     ← GFS Didot, kecil, kapital, spasi lebar
+    Orang tua:
+      Bapak Slamet Untung (Alm)
+      & Ibu Dwi Heni Wulyandari            ← GFS Didot, kecil
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 4 — AKAD NIKAH & RESEPSI
+══════════════════════════════════════════════════════════════
+  [Judul — Playlist Script, gold, besar]
+    "Akad Nikah & Resepsi"
+
+  [Baris tanggal — layout horizontal]
+    Minggu  |  05  |  April
+             2026
+
+    Keterangan tipografi:
+    - "Minggu" dan "April"  → GFS Didot, ±16px, letter-spacing 0.15em
+    - "05"                  → GFS Didot, bold, ±72–96px, warna gold
+    - "2026"                → GFS Didot, ±16px, letter-spacing 0.2em
+    - Garis pemisah vertikal → warna gold/line
+
+  [Waktu — GFS Didot, ±18–22px, letter-spacing 0.18em]
+    Pukul 08.00 WIB
+    Sampai
+    Pukul 14.00 WIB
+
+  [Label lokasi — GFS Didot, kecil, italic, gold]
+    "Lokasi Acara"
+
+  [Nama venue — GFS Didot, bold]
+    RM. Lombok Abang
+
+  [Alamat — GFS Didot, kecil, opacity redup]
+    Jl. WR. Supratman No.95, Cimuning,
+    Mustika Jaya, Bekasi 17155
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 5 — LOKASI / PETA
+══════════════════════════════════════════════════════════════
+  [Peta Google Maps embed]
+    Query: RM. Lombok Abang, Jl. WR. Supratman No.95,
+           Cimuning, Mustika Jaya, Bekasi
+
+  [Nama venue — GFS Didot, bold]
+    RM. Lombok Abang
+
+  [Alamat — GFS Didot, kecil]
+    Jl. WR. Supratman No.95, Cimuning,
+    Mustika Jaya, Bekasi 17155
+
+  [Tombol — GFS Didot, border gold, teks gold]
+    "Petunjuk Ke Lokasi"
+    → Link: https://maps.app.goo.gl/xzSAWot44htkhEfa9
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 6 — MENGHITUNG HARI (COUNTDOWN)
+══════════════════════════════════════════════════════════════
+  [Judul — Playlist Script, gold, besar]
+    "Menghitung Hari"
+
+  [Kotak countdown — 4 kotak berderet]
+    [ XX ]  [ XX ]  [ XX ]  [ XX ]
+     HARI    JAM    MENIT   DETIK
+
+    Keterangan tipografi:
+    - Angka  → GFS Didot, bold, ±36–46px, warna gold
+    - Label  → GFS Didot, ±10–13px, kapital, letter-spacing
+
+  [Teks keterangan — GFS Didot, kecil]
+    "Kirim ucapan untuk mempelai
+    dan konfirmasi kehadiran"
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 7 — KUTIPAN (QUOTES)
+══════════════════════════════════════════════════════════════
+  [Nama mempelai — Playlist Script, gold, besar]
+    Siti
+    Septian
+
+  [Sumber ayat — GFS Didot, kecil, italic, gold]
+    "Surah Ar Rum : 21"
+
+  [Teks ayat — GFS Didot, italic, normal]
+    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia
+    menciptakan pasangan-pasangan untukmu dari jenismu
+    sendiri, agar kamu cenderung dan merasa tenteram
+    kepadanya, dan Dia menjadikan di antaramu rasa kasih
+    dan sayang. Sungguh, pada yang demikian itu terdapat
+    tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+
+══════════════════════════════════════════════════════════════
+  HALAMAN 8 — KARTU UCAPAN
+══════════════════════════════════════════════════════════════
+  [Judul — Playlist Script, gold, besar]
+    "Kartu Ucapan"
+
+  [Form isian — GFS Didot]
+    Input: Nama kamu
+    Input: Tulis ucapan untuk mempelai...
+    Radio: Hadir / Tidak hadir / Mungkin hadir
+
+  [Tombol — GFS Didot, background gold, teks putih]
+    "Kirim Ucapan"
+
+  [Daftar kartu ucapan — tampil 2 kartu terbaru]
+    Setiap kartu berisi:
+    - Nama pengirim  → GFS Didot, bold
+    - Status hadir   → GFS Didot, kecil, gold
+    - Isi ucapan     → GFS Didot, italic, opacity redup
+    - Tanggal        → GFS Didot, sangat kecil, opacity redup
+
+══════════════════════════════════════════════════════════════
+  RINGKASAN FONT UNTUK CANVA
+══════════════════════════════════════════════════════════════
+  1. Playlist Script   → untuk nama mempelai & judul dekoratif
+     (tersedia di Google Fonts / upload manual ke Canva)
+
+  2. GFS Didot         → untuk semua teks keterangan
+     (tersedia di Google Fonts)
+
+  WARNA HEX PENTING:
+    Gold    : #D99A34
+    Teks    : #69755A
+    BG krem : #F5EAD0
+    Putih   : #FFFFFF
+
+══════════════════════════════════════════════════════════════

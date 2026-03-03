@@ -9,7 +9,7 @@ import Page4Akad from "./components/pages/Page4Akad";
 import Page5Lokasi from "./components/pages/Page5Lokasi";
 import Page6Countdown from "./components/pages/Page6Countdown";
 import Page7Quotes from "./components/pages/Page7Quotes";
-import Page8BukuTamu from "./components/pages/Page8BukuTamu";
+import Page8KartuUcapan from "./components/pages/Page8KartuUcapan";
 
 const TOTAL = 8;
 
@@ -52,7 +52,7 @@ export default function App() {
         {panel(4, "Lokasi",         <Page5Lokasi />)}
         {panel(5, "Menghitung Hari",<Page6Countdown />)}
         {panel(6, "Kutipan",        <Page7Quotes />)}
-        {panel(7, "Buku Tamu",      <Page8BukuTamu />)}
+        {panel(7, "Buku Tamu",      <Page8KartuUcapan />)}
       </main>
 
       <DotNav total={TOTAL} activeIndex={activeIndex} onDotClick={scrollToPanel} />
