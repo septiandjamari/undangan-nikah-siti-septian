@@ -88,14 +88,14 @@ function TabUcapan() {
 }
 
 /* ── Confirm Dialog ── */
-function ConfirmDialog({ message, onOk, onCancel }) {
+function ConfirmDialog({ message, onOk, onCancel, labelCancel = "Batal", labelOk = "Ya" }) {
   return (
     <div style={s.dialogOverlay} onClick={onCancel}>
       <div style={s.dialogBox} onClick={(e) => e.stopPropagation()}>
         <p style={s.dialogMsg}>{message}</p>
         <div style={s.dialogActions}>
-          <button style={s.dialogBtnCancel} onClick={onCancel}>Batal</button>
-          <button style={s.dialogBtnOk}     onClick={onOk}>Ya</button>
+          <button style={s.dialogBtnCancel} onClick={onCancel}>{labelCancel}</button>
+          <button style={s.dialogBtnOk}     onClick={onOk}>{labelOk}</button>
         </div>
       </div>
     </div>
@@ -147,10 +147,11 @@ function TabDaftarTamu() {
   const [saving, setSaving]   = useState(false);
   const [err, setErr]         = useState("");
   const [filter, setFilter]   = useState("semua");
-  const [dialog, setDialog]   = useState({ open: false, message: "", onOk: null });
+  const [dialog, setDialog]   = useState({ open: false, message: "", onOk: null, labelCancel: "Batal", labelOk: "Ya" });
 
-  const askConfirm = (message, onOk) => setDialog({ open: true, message, onOk });
-  const closeDialog = () => setDialog({ open: false, message: "", onOk: null });
+  const askConfirm = (message, onOk, labelCancel = "Batal", labelOk = "Ya") =>
+    setDialog({ open: true, message, onOk, labelCancel, labelOk });
+  const closeDialog = () => setDialog({ open: false, message: "", onOk: null, labelCancel: "Batal", labelOk: "Ya" });
 
   useEffect(() => {
     getDocs(query(collection(db, "tamu-undangan"), orderBy("createdAt", "asc")))
@@ -330,7 +331,15 @@ function TabDaftarTamu() {
                         () => {
                           const msg = buildWaMessage(t.nama, t.id);
                           window.open(`https://wa.me/${toWaNumber(t.telepon)}?text=${encodeURIComponent(msg)}`, "_blank");
-                          closeDialog();
+                          askConfirm(
+                            `Tandai tamu undangan ${t.nama} sudah dikirimi pesan WhatsApp?`,
+                            () => {
+                              handleChange(t.id, "selesai", true);
+                              handleBlur(t.id, "selesai", true);
+                              closeDialog();
+                            },
+                            "Tidak", "Iya"
+                          );
                         }
                       )}
                     >
@@ -367,6 +376,8 @@ function TabDaftarTamu() {
           message={dialog.message}
           onOk={dialog.onOk}
           onCancel={closeDialog}
+          labelCancel={dialog.labelCancel}
+          labelOk={dialog.labelOk}
         />
       )}
     </>
