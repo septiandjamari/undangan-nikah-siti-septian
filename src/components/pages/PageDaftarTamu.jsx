@@ -51,35 +51,37 @@ function TabUcapan() {
       ) : tamu.length === 0 ? (
         <p style={s.empty}>Belum ada ucapan.</p>
       ) : (
-        <table style={s.table}>
-          <thead>
-            <tr>
-              {["#", "Nama", "Ucapan", "Kehadiran", "Waktu"].map((h) => (
-                <th key={h} style={s.th}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {tamu.map((t, i) => (
-              <tr key={t.id} style={i % 2 === 0 ? s.rowEven : s.rowOdd}>
-                <td style={s.tdNum}>{i + 1}</td>
-                <td style={s.td}>{t.nama}</td>
-                <td style={s.tdUcapan}>{t.ucapan}</td>
-                <td style={s.td}>
-                  <span style={{
-                    ...s.badge,
-                    background: HADIR_COLOR[t.hadir] + "22",
-                    color: HADIR_COLOR[t.hadir],
-                    border: `1px solid ${HADIR_COLOR[t.hadir]}44`,
-                  }}>
-                    {HADIR_LABEL[t.hadir] ?? t.hadir}
-                  </span>
-                </td>
-                <td style={s.tdDate}>{formatDate(t.createdAt)}</td>
+        <div style={s.tableWrap}>
+          <table style={s.table}>
+            <thead>
+              <tr>
+                {["#", "Nama", "Ucapan", "Kehadiran", "Waktu"].map((h) => (
+                  <th key={h} style={s.th}>{h}</th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tamu.map((t, i) => (
+                <tr key={t.id} style={i % 2 === 0 ? s.rowEven : s.rowOdd}>
+                  <td style={s.tdNum}>{i + 1}</td>
+                  <td style={s.td}>{t.nama}</td>
+                  <td style={s.tdUcapan}>{t.ucapan}</td>
+                  <td style={s.td}>
+                    <span style={{
+                      ...s.badge,
+                      background: HADIR_COLOR[t.hadir] + "22",
+                      color: HADIR_COLOR[t.hadir],
+                      border: `1px solid ${HADIR_COLOR[t.hadir]}44`,
+                    }}>
+                      {HADIR_LABEL[t.hadir] ?? t.hadir}
+                    </span>
+                  </td>
+                  <td style={s.tdDate}>{formatDate(t.createdAt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );

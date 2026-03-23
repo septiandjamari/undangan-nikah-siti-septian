@@ -31,16 +31,7 @@ export default function Page6Countdown() {
         <p className="meta rsvp-text">
           Kirim ucapan untuk mempelai<br />
           dan konfirmasi kehadiran
-        </p>
-
-        <a
-          className="btn-gold"
-          href="https://wa.me/628123456789?text=Assalamu%27alaikum%2C+selamat+atas+pernikahan+Siti+%26+Septian"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Kirim Ucapan RSVP
-        </a>
+        </p>        
       </div>
     </article>
   );

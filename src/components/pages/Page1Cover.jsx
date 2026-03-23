@@ -5,6 +5,7 @@ export default function Page1Cover({ onOpen }) {
 
   return (
     <article className="canvas canvas--one">
+      <img src="/assets/2.svg" width={120} height={120} alt="" style={{ marginBottom: -54 }} />
       <p className="meta" style={{ letterSpacing: "0.22em" }}>
         Undangan Pernikahan<br />Dari:
       </p>
