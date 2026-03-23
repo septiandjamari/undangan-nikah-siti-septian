@@ -8,14 +8,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DB_PATH = join(__dirname, "buku-tamu.json");
 const TAMU_PATH = join(__dirname, "tamu-undangan.json");
 const DIST_PATH = join(__dirname, "../build");
-const IS_PROD = process.env.NODE_ENV === "production";
+const HAS_BUILD = existsSync(DIST_PATH);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Di production: serve static build Vite dari dist/
-if (IS_PROD) {
+// Serve static build jika folder build tersedia
+if (HAS_BUILD) {
   app.use(express.static(DIST_PATH));
 }
 
@@ -109,8 +109,8 @@ app.delete("/api/tamu-undangan/:id", (req, res) => {
   res.json({ ok: true });
 });
 
-// Di production: semua route lain fallback ke index.html (SPA routing)
-if (IS_PROD) {
+// Fallback ke index.html untuk SPA routing
+if (HAS_BUILD) {
   app.get("*", (_req, res) => {
     res.sendFile(join(DIST_PATH, "index.html"));
   });
