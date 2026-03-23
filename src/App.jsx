@@ -1,4 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Routes, Route, useSearchParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./firebase";
+import { GuestContext } from "./GuestContext";
 import { useActivePanel } from "./hooks/useActivePanel";
 import DotNav from "./components/DotNav";
 import PageChip from "./components/PageChip";
@@ -10,10 +14,11 @@ import Page5Lokasi from "./components/pages/Page5Lokasi";
 import Page6Countdown from "./components/pages/Page6Countdown";
 import Page7Quotes from "./components/pages/Page7Quotes";
 import Page8KartuUcapan from "./components/pages/Page8KartuUcapan";
+import PageDaftarTamu from "./components/pages/PageDaftarTamu";
 
 const TOTAL = 8;
 
-export default function App() {
+function Undangan() {
   const { activeIndex, containerRef, scrollToPanel } = useActivePanel(TOTAL);
 
   useEffect(() => {
@@ -58,5 +63,27 @@ export default function App() {
       <DotNav total={TOTAL} activeIndex={activeIndex} onDotClick={scrollToPanel} />
       <PageChip current={activeIndex + 1} total={TOTAL} />
     </>
+  );
+}
+
+export default function App() {
+  const [searchParams] = useSearchParams();
+  const [guest, setGuest] = useState(null);
+
+  useEffect(() => {
+    const id = searchParams.get("to");
+    if (!id) return;
+    getDoc(doc(db, "tamu-undangan", id))
+      .then((snap) => { if (snap.exists()) setGuest({ id: snap.id, ...snap.data() }); })
+      .catch(() => {});
+  }, [searchParams]);
+
+  return (
+    <GuestContext.Provider value={guest}>
+      <Routes>
+        <Route path="/daftar-tamu" element={<PageDaftarTamu />} />
+        <Route path="*" element={<Undangan />} />
+      </Routes>
+    </GuestContext.Provider>
   );
 }

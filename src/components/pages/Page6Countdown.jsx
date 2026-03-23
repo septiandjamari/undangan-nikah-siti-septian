@@ -1,7 +1,7 @@
 import { useCountdown } from "../../hooks/useCountdown";
 
-// Minggu 5 April 2026, 08.00 WIB (UTC+7)
-const WEDDING_DATE = "2026-04-05T08:00:00+07:00";
+// Minggu 5 April 2026, 09.00 WIB (UTC+7)
+const WEDDING_DATE = "2026-04-05T09:00:00+07:00";
 
 function Box({ num, label }) {
   return (

@@ -7,7 +7,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev": "concurrently \"vite\" \"node server/server.js\"",
+    "dev": "concurrently \"vite --host\" \"node server/server.js\"",
     "dev:client": "vite",
     "dev:server": "node server/server.js",
     "build": "vite build",
@@ -18,8 +18,10 @@
     "concurrently": "^9.2.1",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "firebase": "^12.11.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

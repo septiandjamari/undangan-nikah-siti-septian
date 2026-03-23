@@ -7,7 +7,7 @@
   Background utama : #f5ead0  (krem hangat)
   Gold / aksen     : #d99a34
   Teks utama (ink) : #69755a  (hijau keabu-abuan)
-  Garis dekorasi   : rgba(184, 141, 63, 0.86)
+  Garis dekorasi   : #b88d3fdb
 
 ── TIPOGRAFI ──────────────────────────────────────────────────
   FONT SCRIPT (nama mempelai, judul dekoratif)
@@ -99,7 +99,7 @@
     - Garis pemisah vertikal → warna gold/line
 
   [Waktu — GFS Didot, ±18–22px, letter-spacing 0.18em]
-    Pukul 08.00 WIB
+    Pukul 09.00 WIB
     Sampai
     Pukul 14.00 WIB
 

@@ -17,7 +17,7 @@ export default function Page4Akad() {
           <p className="meta date-month">April</p>
         </div>
 
-        <p className="meta akad-time">Pukul 08.00 WIB</p>
+        <p className="meta akad-time">Pukul 09.00 WIB</p>
         <p className="meta akad-time">Sampai</p>
         <p className="meta akad-time">Pukul 14.00 WIB</p>
 

@@ -310,6 +310,9 @@ body {
   outline: none;
   transition: border-color .2s;
 }
+.bt-input::placeholder {
+  opacity: 0.75;
+}
 .bt-input:focus { border-color: var(--gold); }
 .bt-textarea { resize: vertical; min-height: 72px; }
 
@@ -454,3 +457,5 @@ body {
   .snap-stack { scroll-behavior: auto; }
   .canvas, .dot { transition: none !important; animation: none !important; }
 }
+
+.dt-input::placeholder { opacity: 0.75; }

@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { collection, getDocs, addDoc, query, orderBy } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useGuest } from "../../GuestContext";
 
 function KartuUcapan({ nama, ucapan, hadir, createdAt }) {
   const hadirLabel = { hadir: "✓ Hadir", tidak: "✗ Tidak hadir", mungkin: "~ Mungkin hadir" };
@@ -34,6 +37,7 @@ function ModalDaftarUcapan({ messages, onClose }) {
 }
 
 export default function Page8KartuUcapan() {
+  const guest = useGuest();
   const [messages, setMessages] = useState([]);
   const [form, setForm] = useState({ nama: "", ucapan: "", hadir: "hadir" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -41,9 +45,14 @@ export default function Page8KartuUcapan() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/api/buku-tamu")
-      .then((r) => r.json())
-      .then((res) => { if (res.ok) setMessages(res.data); })
+    if (guest?.nama) setForm((f) => ({ ...f, nama: guest.nama }));
+  }, [guest]);
+
+  useEffect(() => {
+    getDocs(query(collection(db, "buku-tamu"), orderBy("createdAt", "desc")))
+      .then((snap) => {
+        setMessages(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+      })
       .catch(() => {});
   }, []);
 
@@ -52,14 +61,14 @@ export default function Page8KartuUcapan() {
     setStatus("loading");
     setErrMsg("");
     try {
-      const res = await fetch("/api/add-buku-tamu", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const json = await res.json();
-      if (!json.ok) throw new Error(json.message);
-      setMessages((prev) => [json.data, ...prev]);
+      const entry = {
+        nama: form.nama.trim(),
+        ucapan: form.ucapan.trim(),
+        hadir: form.hadir,
+        createdAt: new Date().toISOString(),
+      };
+      const ref = await addDoc(collection(db, "buku-tamu"), entry);
+      setMessages((prev) => [{ id: ref.id, ...entry }, ...prev]);
       setForm({ nama: "", ucapan: "", hadir: "hadir" });
       setStatus("success");
       setTimeout(() => setStatus("idle"), 2500);
@@ -85,6 +94,8 @@ export default function Page8KartuUcapan() {
             onChange={(e) => setForm((f) => ({ ...f, nama: e.target.value }))}
             required
             maxLength={60}
+            readOnly={!!guest?.nama}
+            style={guest?.nama ? { opacity: 0.7, cursor: "not-allowed" } : undefined}
           />
           <textarea
             className="bt-input bt-textarea"

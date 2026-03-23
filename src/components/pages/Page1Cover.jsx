@@ -1,4 +1,8 @@
+import { useGuest } from "../../GuestContext";
+
 export default function Page1Cover({ onOpen }) {
+  const guest = useGuest();
+
   return (
     <article className="canvas canvas--one">
       <p className="meta" style={{ letterSpacing: "0.22em" }}>
@@ -14,7 +18,7 @@ export default function Page1Cover({ onOpen }) {
         <div className="cover-guest">
           <p className="meta" style={{ letterSpacing: "0.14em" }}>Kepada Yth:</p>
           <p className="meta" style={{ letterSpacing: "0.14em" }}>Bapak/Ibu/Saudara/i</p>
-          <p className="meta guest-name">Nama Tamu</p>
+          <p className="meta guest-name">{guest?.nama ?? "Nama Tamu"}</p>
           <p className="meta" style={{ letterSpacing: "0.14em" }}>Di Tempat</p>
         </div>
 
