@@ -40,6 +40,18 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   Overlay scrollbar — global
+   ═══════════════════════════════════════════════════════════ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184,141,63,.45) transparent;
+}
+*::-webkit-scrollbar        { width: 4px; height: 4px; }
+*::-webkit-scrollbar-track  { background: transparent; }
+*::-webkit-scrollbar-thumb  { background: rgba(184,141,63,.45); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(184,141,63,.75); }
+
+/* ═══════════════════════════════════════════════════════════
    Snap container
    ═══════════════════════════════════════════════════════════ */
 .snap-stack {
