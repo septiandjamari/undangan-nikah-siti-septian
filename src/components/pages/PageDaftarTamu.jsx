@@ -29,7 +29,7 @@ function TabUcapan() {
   const mungkin    = tamu.filter((t) => t.hadir === "mungkin").length;
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, overflow: "hidden" }}>
       {!loading && (
         <div style={s.summaryRow}>
           {[
@@ -83,7 +83,7 @@ function TabUcapan() {
           </table>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -200,7 +200,7 @@ function TabDaftarTamu() {
   });
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, overflow: "hidden" }}>
       {/* Form tambah tamu */}
       <form onSubmit={handleSubmit} style={s.form}>
         <div style={s.formRow}>
@@ -380,7 +380,7 @@ function TabDaftarTamu() {
           labelOk={dialog.labelOk}
         />
       )}
-    </>
+    </div>
   );
 }
 
@@ -410,8 +410,10 @@ export default function PageDaftarTamu() {
           ))}
         </div>
 
-        {tab === "ucapan"      && <TabUcapan />}
-        {tab === "daftar-tamu" && <TabDaftarTamu />}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0, overflow: "hidden" }}>
+          {tab === "ucapan"      && <TabUcapan />}
+          {tab === "daftar-tamu" && <TabDaftarTamu />}
+        </div>
       </div>
     </div>
   );
@@ -420,13 +422,14 @@ export default function PageDaftarTamu() {
 /* ── Styles ── */
 const s = {
   page: {
-    minHeight: "100dvh",
+    height: "100dvh",
+    display: "flex", flexDirection: "column", overflow: "hidden",
     background: "#F5EAD0",
-    padding: "32px 16px 64px",
+    padding: "32px 16px 16px",
     fontFamily: '"GFS Didot", "Didot", serif',
     color: "#69755A",
   },
-  container: { maxWidth: 860, margin: "0 auto" },
+  container: { maxWidth: 860, margin: "0 auto", width: "100%", display: "flex", flexDirection: "column", flex: 1, minHeight: 0 },
   title: {
     fontSize: "clamp(24px, 4vw, 36px)",
     margin: "0 0 4px",
@@ -461,7 +464,7 @@ const s = {
   summaryNum:   { fontSize: 28, fontWeight: "bold", color: "#69755A", lineHeight: 1 },
   summaryLabel: { fontSize: 11, letterSpacing: "0.1em", marginTop: 4, color: "#69755A", opacity: 0.7 },
   tableWrap: {
-    overflowX: "auto", borderRadius: 12,
+    overflowX: "auto", overflowY: "auto", flex: 1, minHeight: 0, borderRadius: 12,
     boxShadow: "0 2px 12px rgba(0,0,0,.06)",
   },
   table: {
@@ -472,6 +475,7 @@ const s = {
     padding: "12px 14px", textAlign: "left",
     background: "#69755A", color: "#F5EAD0",
     fontWeight: "normal", letterSpacing: "0.08em", fontSize: 12, whiteSpace: "nowrap",
+    position: "sticky", top: 0, zIndex: 3,
   },
   rowEven: { background: "#fff" },
   rowOdd:  { background: "#faf6ee" },
