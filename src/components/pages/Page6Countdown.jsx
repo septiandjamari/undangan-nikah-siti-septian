@@ -27,11 +27,6 @@ export default function Page6Countdown() {
           <Box num={minutes} label="Menit" />
           <Box num={seconds} label="Detik" />
         </div>
-
-        <p className="meta rsvp-text">
-          Kirim ucapan untuk mempelai<br />
-          dan konfirmasi kehadiran
-        </p>        
       </div>
     </article>
   );
