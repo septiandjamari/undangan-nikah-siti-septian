@@ -381,6 +381,11 @@ body {
 
 .buku-tamu-title { font-size:calc(clamp(50px,6.6vh,90px) * 0.9); line-height:.92; margin:0; }
 
+/* ═══════════════════════════════════════════════════════════
+   Page 9 — Terima Kasih
+   ═══════════════════════════════════════════════════════════ */
+.terima-kasih-title { font-size:calc(clamp(50px,6.6vh,90px) * 0.9); line-height:.92; margin:0; }
+
 .buku-tamu-form {
   display: flex;
   flex-direction: column;

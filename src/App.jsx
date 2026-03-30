@@ -14,10 +14,11 @@ import Page5Lokasi from "./components/pages/Page5Lokasi";
 import Page6Countdown from "./components/pages/Page6Countdown";
 import Page7Quotes from "./components/pages/Page7Quotes";
 import Page8KartuUcapan from "./components/pages/Page8KartuUcapan";
+import Page9TerimaKasih from "./components/pages/Page9TerimaKasih";
 import PageDaftarTamu from "./components/pages/PageDaftarTamu";
 import MusicPlayer from "./components/MusicPlayer";
 
-const TOTAL = 8;
+const TOTAL = 9;
 
 function Undangan() {
   const { activeIndex, containerRef, scrollToPanel } = useActivePanel(TOTAL);
@@ -59,6 +60,7 @@ function Undangan() {
         {panel(5, "Menghitung Hari",<Page6Countdown />)}
         {panel(6, "Kutipan",        <Page7Quotes />)}
         {panel(7, "Buku Tamu",      <Page8KartuUcapan />)}
+        {panel(8, "Terima Kasih",   <Page9TerimaKasih />)}
       </main>
 
       {activeIndex > 0 && (
