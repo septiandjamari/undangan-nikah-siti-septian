@@ -17,6 +17,7 @@ import Page8KartuUcapan from "./components/pages/Page8KartuUcapan";
 import Page9TerimaKasih from "./components/pages/Page9TerimaKasih";
 import PageDaftarTamu from "./components/pages/PageDaftarTamu";
 import MusicPlayer from "./components/MusicPlayer";
+import LoadingScreen from "./components/LoadingScreen";
 
 const TOTAL = 9;
 
@@ -83,6 +84,7 @@ function Undangan() {
 export default function App() {
   const [searchParams] = useSearchParams();
   const [guest, setGuest] = useState(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const id = searchParams.get("to");
@@ -94,6 +96,7 @@ export default function App() {
 
   return (
     <GuestContext.Provider value={guest}>
+      {!ready && <LoadingScreen onDone={() => setReady(true)} />}
       <Routes>
         <Route path="/daftar-tamu" element={<PageDaftarTamu />} />
         <Route path="*" element={<Undangan />} />
