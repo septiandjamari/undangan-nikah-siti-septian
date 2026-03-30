@@ -94,8 +94,6 @@ export default function Page8KartuUcapan() {
             onChange={(e) => setForm((f) => ({ ...f, nama: e.target.value }))}
             required
             maxLength={60}
-            readOnly={!!guest?.nama}
-            style={guest?.nama ? { opacity: 0.7, cursor: "not-allowed" } : undefined}
           />
           <textarea
             className="bt-input bt-textarea"

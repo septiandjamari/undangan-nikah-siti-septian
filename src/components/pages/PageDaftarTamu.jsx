@@ -147,6 +147,7 @@ function TabDaftarTamu() {
   const [saving, setSaving]   = useState(false);
   const [err, setErr]         = useState("");
   const [filter, setFilter]   = useState("semua");
+  const [search, setSearch]   = useState("");
   const [dialog, setDialog]   = useState({ open: false, message: "", onOk: null, labelCancel: "Batal", labelOk: "Ya" });
 
   const askConfirm = (message, onOk, labelCancel = "Batal", labelOk = "Ya") =>
@@ -197,7 +198,9 @@ function TabDaftarTamu() {
     if (filter === "selesai") return t.selesai === true;
     if (filter === "belum")   return !t.selesai;
     return true;
-  });
+  }).filter((t) =>
+    search.trim() === "" || t.nama.toLowerCase().includes(search.trim().toLowerCase())
+  );
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, overflow: "hidden" }}>
@@ -253,6 +256,13 @@ function TabDaftarTamu() {
             {label}
           </label>
         ))}
+        <input
+          className="dt-input"
+          style={s.searchInput}
+          placeholder="Cari nama…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
       {loading ? (
@@ -570,5 +580,12 @@ const s = {
   },
   filterOption: {
     display: "flex", alignItems: "center", gap: 6, cursor: "pointer",
+  },
+  searchInput: {
+    marginLeft: "auto",
+    padding: "5px 12px", border: "1px solid rgba(184,141,63,.4)",
+    borderRadius: 8, fontSize: 13, background: "#faf6ee",
+    fontFamily: '"GFS Didot", "Didot", serif', color: "#69755A",
+    outline: "none", minWidth: 160,
   },
 };

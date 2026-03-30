@@ -19,8 +19,7 @@ export default function Page3Mempelai() {
           name="Siti Saodatul Ashari"
           role="Putri ke-4"
           parents="Bapak Jahidin<br />&amp; Ibu Nuraenah (Almh)"
-        />
-        <p className="script amp-sep">&amp;</p>
+        />        
         <PersonCard
           name="Septian Djamari Chaniaco"
           role="Putra ke-2"
