@@ -61,6 +61,16 @@ function Undangan() {
         {panel(7, "Buku Tamu",      <Page8KartuUcapan />)}
       </main>
 
+      {activeIndex > 0 && (
+        <>
+          <img src="/assets/background center whole page.svg" className="page-bg-center page-bg-center--fixed" alt="" aria-hidden="true" />
+          <img src="/assets/pojok kiri atas whole page.svg"   className="wp-corner wp-corner--tl" alt="" aria-hidden="true" />
+          <img src="/assets/pojok kanan atas whole page.svg"  className="wp-corner wp-corner--tr" alt="" aria-hidden="true" />
+          <img src="/assets/pojok kiri bawah whole page.svg"  className="wp-corner wp-corner--bl" alt="" aria-hidden="true" />
+          <img src="/assets/pojok kanan bawah whole page.svg" className="wp-corner wp-corner--br" alt="" aria-hidden="true" />
+        </>
+      )}
+
       <DotNav total={TOTAL} activeIndex={activeIndex} onDotClick={scrollToPanel} />
       <PageChip current={activeIndex + 1} total={TOTAL} />
       <MusicPlayer />

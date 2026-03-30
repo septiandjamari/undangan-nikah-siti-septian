@@ -5,6 +5,9 @@ export default function Page1Cover({ onOpen }) {
 
   return (
     <article className="canvas canvas--one">
+      {/* Background center page 1 — layer paling bawah */}
+      <img src="/assets/background center page1.svg" className="page-bg-center" alt="" aria-hidden="true" />
+
       {/* 10.svg sebagai bingkai + dekorasi, di belakang semua konten */}
       <img src="/assets/10.svg" className="cover-bg" alt="" aria-hidden="true" />
 
